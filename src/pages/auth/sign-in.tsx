@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-label";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { z } from "zod";
 
 const signInForm = z.object({
@@ -17,6 +18,7 @@ export function SignIn() {
   async function handleSignIn(data: SignInForm) {
     await new Promise((resolve) => setTimeout(resolve, 2000));
     console.log(data);
+    toast.success("Enviamos um link de autentificação para seu e-mail");
   }
 
   return (
