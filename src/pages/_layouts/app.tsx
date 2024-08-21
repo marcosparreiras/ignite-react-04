@@ -8,7 +8,6 @@ export function AppLayout() {
       <div className="flex flex-1 flex-col gap-4 p-8 pt-6">
         <Outlet />
       </div>
-      <h1>Footer</h1>
     </div>
   );
 }
