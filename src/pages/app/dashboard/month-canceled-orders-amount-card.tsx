@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { DollarSign, MoveDownIcon, Trash, X } from "lucide-react";
+import { MoveDownIcon } from "lucide-react";
 
 export function MonthCanceledOrdersAmountCard() {
   return (
