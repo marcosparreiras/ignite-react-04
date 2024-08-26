@@ -21,10 +21,19 @@ export function Orders() {
     .transform((value) => value - 1)
     .parse(searchParams.get("page") ?? 1);
 
+  const orderId = searchParams.get("orderId");
+  const customerName = searchParams.get("customerName");
+  const status = searchParams.get("status");
+
   const { data: result } = useQuery({
-    queryKey: ["orders", pageIndex],
+    queryKey: ["orders", pageIndex, orderId, customerName, status],
     queryFn: async () => {
-      const result = await getOrders({ perPage: 20, pageIndex: pageIndex });
+      const result = await getOrders({
+        pageIndex,
+        orderId,
+        customerName,
+        status,
+      });
       return result;
     },
   });

@@ -10,11 +10,15 @@ export type Order = {
 
 type Meta = {
   totalCount: number;
-} & Input;
-
-type Input = {
   pageIndex: number;
   perPage: number;
+};
+
+type Input = {
+  orderId?: string | null;
+  customerName?: string | null;
+  status?: string | null;
+  pageIndex: number;
 };
 
 type Output = {
@@ -26,7 +30,9 @@ export async function getOrders(input: Input): Promise<Output> {
   const response = await api.get<Output>("/orders", {
     params: {
       pageIndex: input.pageIndex,
-      // perPage: input.perPage,
+      orderId: input.orderId,
+      customerName: input.customerName,
+      status: input.status === "all" ? null : input.status,
     },
   });
   return response.data;
