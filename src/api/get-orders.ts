@@ -21,13 +21,13 @@ type Input = {
   pageIndex: number;
 };
 
-type Output = {
+export type GetOrdersOutput = {
   orders: Order[];
   meta: Meta;
 };
 
-export async function getOrders(input: Input): Promise<Output> {
-  const response = await api.get<Output>("/orders", {
+export async function getOrders(input: Input): Promise<GetOrdersOutput> {
+  const response = await api.get<GetOrdersOutput>("/orders", {
     params: {
       pageIndex: input.pageIndex,
       orderId: input.orderId,
