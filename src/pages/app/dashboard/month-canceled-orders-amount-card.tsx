@@ -24,17 +24,17 @@ export function MonthCanceledOrdersAmountCard() {
               {data.amount}
             </span>
             <p className="text-xs text-muted-foreground">
-              {data.diffFromLastMonth >= 0 ? (
+              {data.diffFromLastMonth <= 0 ? (
                 <>
                   <span className="text-emerald-500 dark:text-emerald-400">
-                    +{data.diffFromLastMonth}%
+                    {data.diffFromLastMonth}%
                   </span>{" "}
                   em realação ao mês passado
                 </>
               ) : (
                 <>
                   <span className="text-rose-500 dark:text-rose-400">
-                    -{data.diffFromLastMonth}%
+                    +{data.diffFromLastMonth}%
                   </span>{" "}
                   em realação ao mês passado
                 </>
