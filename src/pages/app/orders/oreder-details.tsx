@@ -1,4 +1,5 @@
 import { getOrderDetails } from "@/api/get-order-details";
+import { OrderStatus } from "@/components/order-status";
 import {
   DialogContent,
   DialogDescription,
@@ -17,6 +18,7 @@ import {
 import { useQuery } from "@tanstack/react-query";
 import { formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale";
+import { OrderDetailsSkeleton } from "./order-details-skeleton";
 
 interface OrderDetailsProps {
   orderId: string;
@@ -39,19 +41,14 @@ export function OrderDetails(props: OrderDetailsProps) {
         <DialogTitle>Pedido: {props.orderId}</DialogTitle>
         <DialogDescription>Detalhes do pedido</DialogDescription>
       </DialogHeader>
-      {order && (
+      {order ? (
         <div className="space-y-6">
           <Table>
             <TableBody>
               <TableRow>
                 <TableCell className="text-muted-foreground">Status</TableCell>
                 <TableCell className="flex justify-end">
-                  <div className="flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-slate-400" />
-                    <span className="font-medium text-muted-foreground">
-                      {order.status}
-                    </span>
-                  </div>
+                  <OrderStatus status={order.status} />
                 </TableCell>
               </TableRow>
               <TableRow>
@@ -134,6 +131,8 @@ export function OrderDetails(props: OrderDetailsProps) {
             </TableFooter>
           </Table>
         </div>
+      ) : (
+        <OrderDetailsSkeleton />
       )}
     </DialogContent>
   );

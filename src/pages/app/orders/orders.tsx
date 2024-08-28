@@ -13,6 +13,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getOrders } from "@/api/get-orders";
 import { useSearchParams } from "react-router-dom";
 import { z } from "zod";
+import { OrderTableSkeleton } from "./order-table-skeleton";
 
 export function Orders() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -75,6 +76,7 @@ export function Orders() {
                 </TableRow>
               </TableHeader>
               <TableBody>
+                {!result && <OrderTableSkeleton />}
                 {result?.orders &&
                   result.orders.map((order) => (
                     <OrderTableRow key={order.orderId} order={order} />

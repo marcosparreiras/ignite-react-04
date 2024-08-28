@@ -20,7 +20,8 @@ import { Label } from "@/components/ui/label";
 import { DatePickerWithRange } from "@/components/ui/date-range-picker";
 import { useMemo, useState } from "react";
 import { DateRange } from "react-day-picker";
-import { daysToWeeks, subDays } from "date-fns";
+import { subDays } from "date-fns";
+import { Loader2 } from "lucide-react";
 
 export function RevenueChat() {
   const [dateRange, setDateRange] = useState<DateRange | undefined>({
@@ -61,7 +62,7 @@ export function RevenueChat() {
         </div>
       </CardHeader>
       <CardContent>
-        {data && (
+        {data ? (
           <ResponsiveContainer width="100%" height={240}>
             <LineChart data={chartData} style={{ fontSize: 12 }}>
               <XAxis dataKey="date" tickLine={false} axisLine={false} dy={16} />
@@ -86,6 +87,10 @@ export function RevenueChat() {
               />
             </LineChart>
           </ResponsiveContainer>
+        ) : (
+          <div className="flex h-[240px] w-full items-center justify-center">
+            <Loader2 className="w-8 h-8 text-muted-foreground animate-spin" />
+          </div>
         )}
       </CardContent>
     </Card>
