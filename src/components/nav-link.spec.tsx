@@ -18,8 +18,6 @@ describe("NavLink", () => {
       }
     );
 
-    wrapper.debug();
-
     expect(wrapper.getByText("Home").dataset.current).toEqual("false");
     expect(wrapper.getByText("About").dataset.current).toEqual("true");
   });
