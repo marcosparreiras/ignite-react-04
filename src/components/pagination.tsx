@@ -46,7 +46,7 @@ export function Pagination({
             disabled={pageIndex <= 0}
           >
             <ChevronLeft className="w-4 h-4" />
-            <span className="sr-only">Página Anterior</span>
+            <span className="sr-only">Página anterior</span>
           </Button>
           <Button
             variant="outline"
