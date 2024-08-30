@@ -1,13 +1,12 @@
 import { render } from "@testing-library/react";
 import { Pagination } from "./pagination";
 import userEvent from "@testing-library/user-event";
-import type { Mock } from "vitest";
 
 describe("Pagination", () => {
-  let onPageChangeCb: Mock<(pageIndex: number) => void>;
+  const onPageChangeCb = vi.fn();
 
   beforeEach(() => {
-    onPageChangeCb = vi.fn();
+    onPageChangeCb.mockClear();
   });
 
   it("Should display the right amount of pages and results", () => {
