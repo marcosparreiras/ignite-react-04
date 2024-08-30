@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
+    "dev:test": "vite --port 5078 --mode test",
     "test": "vitest"
   },
   "dependencies": {
@@ -48,11 +49,17 @@
     "autoprefixer": "^10.4.20",
     "globals": "^15.9.0",
     "happy-dom": "^15.3.1",
+    "msw": "^2.4.1",
     "postcss": "^8.4.41",
     "tailwindcss": "^3.4.10",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.1",
     "vitest": "^2.0.5"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }
