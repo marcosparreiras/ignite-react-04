@@ -1,11 +1,11 @@
 import { api } from "@/lib/axios";
 
-type Input = {
+export type UpdateProfileInput = {
   name: string;
   description: string | null;
 };
 
-export async function updateProfile(input: Input) {
+export async function updateProfile(input: UpdateProfileInput) {
   await api.put("/profile", {
     name: input.name,
     description: input.description,
