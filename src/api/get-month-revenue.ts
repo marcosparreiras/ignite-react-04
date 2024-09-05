@@ -1,11 +1,13 @@
 import { api } from "@/lib/axios";
 
-type Output = {
+export type GetMonthRevenueOutput = {
   receipt: number;
   diffFromLastMonth: number;
 };
 
-export async function getMonthRevenue(): Promise<Output> {
-  const response = await api.get<Output>("/metrics/month-receipt");
+export async function getMonthRevenue(): Promise<GetMonthRevenueOutput> {
+  const response = await api.get<GetMonthRevenueOutput>(
+    "/metrics/month-receipt"
+  );
   return response.data;
 }
