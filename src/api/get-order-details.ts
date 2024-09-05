@@ -1,11 +1,11 @@
 import { api } from "@/lib/axios";
 import type { Order } from "./get-orders";
 
-type Input = {
+export type GetOrderDetailsInput = {
   orderId: string;
 };
 
-type Output = {
+export type GetOrderDetailsOutput = {
   id: string;
   totalInCents: number;
   customer: {
@@ -23,7 +23,11 @@ type Output = {
   }[];
 } & Pick<Order, "createdAt" | "status">;
 
-export async function getOrderDetails(input: Input): Promise<Output> {
-  const result = await api.get<Output>(`/orders/${input.orderId}`);
+export async function getOrderDetails(
+  input: GetOrderDetailsInput
+): Promise<GetOrderDetailsOutput> {
+  const result = await api.get<GetOrderDetailsOutput>(
+    `/orders/${input.orderId}`
+  );
   return result.data;
 }
