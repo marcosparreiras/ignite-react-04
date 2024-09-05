@@ -1,9 +1,9 @@
 import { api } from "@/lib/axios";
 
-type Input = {
+export type CancelOrderInput = {
   orderId: string;
 };
 
-export async function cancelOrder(input: Input): Promise<void> {
+export async function cancelOrder(input: CancelOrderInput): Promise<void> {
   await api.patch(`/orders/${input.orderId}/cancel`);
 }

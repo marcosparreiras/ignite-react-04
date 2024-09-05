@@ -1,9 +1,9 @@
 import { api } from "@/lib/axios";
 
-type Input = {
+export type ApproveOrderInput = {
   orderId: string;
 };
 
-export async function approveOrder(input: Input): Promise<void> {
+export async function approveOrder(input: ApproveOrderInput): Promise<void> {
   await api.patch(`/orders/${input.orderId}/approve`);
 }
