@@ -25,6 +25,7 @@ export default defineConfig({
     url: "http://127.0.0.1:5078",
     reuseExistingServer: !process.env.CI,
   },
+  testMatch: /.*\.e2e-spec\.ts$/,
 
   /* Configure projects for major browsers */
   // projects: [
