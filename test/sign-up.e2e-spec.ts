@@ -8,7 +8,7 @@ test("sign up successfully ", async ({ page }) => {
   await page.getByLabel("Seu telefone").fill("999999999");
   await page.getByRole("button", { name: "Finalizar cadastro" }).click();
   const toast = page.getByText("Restautante registrado");
-  expect(toast).toBeVisible();
+  await expect(toast).toBeVisible();
 });
 
 test("sign up with invalid data", async ({ page }) => {
@@ -19,7 +19,7 @@ test("sign up with invalid data", async ({ page }) => {
   await page.getByLabel("Seu telefone").fill("999999999");
   await page.getByRole("button", { name: "Finalizar cadastro" }).click();
   const toast = page.getByText("Algo deu errado, tente novamente mais tarde!");
-  expect(toast).toBeVisible();
+  await expect(toast).toBeVisible();
 });
 
 test("navigate to sign in page", async ({ page }) => {

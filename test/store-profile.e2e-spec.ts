@@ -9,7 +9,7 @@ test("sign in successfully ", async ({ page }) => {
   await page.getByRole("button", { name: "Salvar" }).click();
   await page.waitForLoadState("networkidle");
   const toast = page.getByText("Perfil atualizado com sucesso!");
-  expect(toast).toBeVisible();
+  await expect(toast).toBeVisible();
   await page.getByRole("button", { name: "Close" }).click();
-  expect(page.getByText("Pizza Shop 01")).toBeVisible();
+  await expect(page.getByText("Pizza Shop 01")).toBeVisible();
 });
